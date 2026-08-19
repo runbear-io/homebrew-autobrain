@@ -13,11 +13,11 @@ class Autobrain < Formula
   depends_on arch: :arm64
 
   resource "hatchling" do
-    url "https://files.pythonhosted.org/packages/a9/84/1798b6d85ecde0e31546004efd25c5de1b1f49250644a60cce03b1aa7c62/hatchling-1.32.0-py3-none-any.whl"
+    url "https://files.pythonhosted.org/packages/a9/84/1798b6d85ecde0e31546004efd25c5de1b1f49250644a60cce460e12593a/hatchling-1.32.0-py3-none-any.whl"
     sha256 "0e17c9c3b9aa7c625acc8d0f5b622f107d5049af9ecf5ada4de1aada5be7cdbc"
   end
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ce652019a67074317e18c1935cc0b4ba9b355/pathspec-1.1.1-py3-none-any.whl"
+    url "https://files.pythonhosted.org/packages/f1/d9/7fb5aa316bc299258e68c73ba3bddbc499654a07f151cba08f6153988714/pathspec-1.1.1-py3-none-any.whl"
     sha256 "a00ce642f577bf7f473932318056212bc4f8bfdf53128c78bbd5af0b9b20b189"
   end
   resource "trove-classifiers" do
