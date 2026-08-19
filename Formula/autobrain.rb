@@ -8,9 +8,9 @@ class Autobrain < Formula
   license "MIT"
   head "https://github.com/runbear-io/AutoBrain.git", branch: "main"
 
-  depends_on "python@3.13"
-  depends_on :macos
   depends_on arch: :arm64
+  depends_on :macos
+  depends_on "python@3.13"
 
   resource "hatchling" do
     url "https://files.pythonhosted.org/packages/a9/84/1798b6d85ecde0e31546004efd25c5de1b1f49250644a60cce460e12593a/hatchling-1.32.0-py3-none-any.whl"
