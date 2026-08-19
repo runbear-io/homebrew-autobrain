@@ -3,8 +3,8 @@ class Autobrain < Formula
 
   desc "Compare LLM Wiki, Mem0 OSS, and GBrain on Slack and Notion"
   homepage "https://github.com/runbear-io/AutoBrain"
-  url "https://github.com/runbear-io/AutoBrain/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "5dbe46e545a95a6074823593cdc4dd029a2860dcd8e75f9b4d90d8007bd582b5"
+  url "https://github.com/runbear-io/AutoBrain/archive/refs/tags/v0.1.1.tar.gz"
+  sha256 "162cdf83a2f53747e07400a825119a07b44171b04809766cdacd09355b92c7a3"
   license "MIT"
   head "https://github.com/runbear-io/AutoBrain.git", branch: "main"
 
