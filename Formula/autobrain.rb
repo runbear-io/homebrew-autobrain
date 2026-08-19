@@ -291,7 +291,23 @@ class Autobrain < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3.13")
+
+    # Every resource here is a wheel. Homebrew only hands pip the staged wheel
+    # file for pure-Python wheels (`*-py3-none-any.whl`) and passes everything
+    # else as the staged directory, which pip rejects because a wheel unpacks
+    # no setup.py or pyproject.toml. Install each wheel by its own path so the
+    # platform-specific ones (cffi, cryptography, numpy, pydantic-core, ...)
+    # install too.
+    resources.each do |r|
+      r.stage do
+        target = Pathname.pwd
+        target /= r.downloader.basename if r.url.to_s.end_with?(".whl")
+        venv.pip_install target
+      end
+    end
+
+    venv.pip_install_and_link buildpath
   end
 
   test do
