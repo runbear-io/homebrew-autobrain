@@ -8,9 +8,9 @@ class Autobrain < Formula
   license "MIT"
   head "https://github.com/runbear-io/AutoBrain.git", branch: "main"
 
-  depends_on "python@3.13"
-  depends_on :macos
   depends_on arch: :arm64
+  depends_on :macos
+  depends_on "python@3.13"
 
   resource "hatchling" do
     url "https://files.pythonhosted.org/packages/a9/84/1798b6d85ecde0e31546004efd25c5de1b1f49250644a60cce460e12593a/hatchling-1.32.0-py3-none-any.whl"
@@ -291,7 +291,23 @@ class Autobrain < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3.13")
+
+    # Every resource here is a wheel. Homebrew only hands pip the staged wheel
+    # file for pure-Python wheels (`*-py3-none-any.whl`) and passes everything
+    # else as the staged directory, which pip rejects because a wheel unpacks
+    # no setup.py or pyproject.toml. Install each wheel by its own path so the
+    # platform-specific ones (cffi, cryptography, numpy, pydantic-core, ...)
+    # install too.
+    resources.each do |r|
+      r.stage do
+        target = Pathname.pwd
+        target /= r.downloader.basename if r.url.to_s.end_with?(".whl")
+        venv.pip_install target
+      end
+    end
+
+    venv.pip_install_and_link buildpath
   end
 
   test do
