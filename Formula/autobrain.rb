@@ -4,7 +4,7 @@
 # source url: https://github.com/runbear-io/AutoBrain/releases/download/UNAPPROVED/autobrain-0.1.1.tar.gz
 # source sha256: 0000000000000000000000000000000000000000000000000000000000000000
 # reviewed commit: null
-# reviewed release tree sha256: a71e84f3d4ae276d5794461305ac76b3a97e576d677ac3208ef5682dc8052834
+# reviewed release tree sha256: 5981b2cbeb4ed8e5b8db6a90ae0989772d655940b669f54e6afb19258927733f
 # uv.lock sha256: a4481b7bd4228d6a2f79e96cdf9f9885d850f4eddd23942f98425efd8ec1763e
 # candidate-pins.json sha256: 823e6b199432fa9f512062c190b33113ba6e5916d6c73bd0f2ec141046240678
 class Autobrain < Formula
